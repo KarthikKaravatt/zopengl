@@ -2857,13 +2857,13 @@ pub fn Wrap(comptime bindings: anytype) type {
         pub fn uniformMatrix4fv(
             location: UniformLocation,
             count: u32,
-            transpose: Boolean,
+            transpose: bool,
             value: [*]const f32,
         ) void {
             bindings.uniformMatrix4fv(
                 @as(Int, @bitCast(location)),
                 @as(Sizei, @bitCast(count)),
-                transpose,
+                @intFromBool(transpose),
                 value,
             );
         }
